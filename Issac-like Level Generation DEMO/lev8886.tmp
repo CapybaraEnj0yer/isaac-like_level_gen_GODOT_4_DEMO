@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6bys7qmg47vu"]
+
+[ext_resource type="Script" path="res://scripts/LevelGenerator.gd" id="1_othul"]
+
+[node name="LevelGenerator" type="Node2D"]
+script = ExtResource("1_othul")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(5120, 2880)
+zoom = Vector2(0.1, 0.1)
+
+[node name="Rooms" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 1036.0
+offset_bottom = 137.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "NUMBER OF ROOMS: "
+
+[node name="plusBtn" type="Button" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 30
+text = "+"
+
+[node name="minusBtn" type="Button" parent="CanvasLayer"]
+offset_left = 192.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="genBtn" type="Button" parent="CanvasLayer"]
+offset_top = 160.0
+offset_right = 331.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 30
+text = "GENERATE NEW LEVEL"
+
+[connection signal="pressed" from="CanvasLayer/plusBtn" to="." method="_on_plus_one_pressed"]
+[connection signal="pressed" from="CanvasLayer/minusBtn" to="." method="_on_minus_one_pressed"]
+[connection signal="pressed" from="CanvasLayer/genBtn" to="." method="_on_generate_new_level_pressed"]
